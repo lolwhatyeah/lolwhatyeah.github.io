@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>HIRRARY!!! ERECTION 2016</h1>
+
+<img src="img/h.gif" alt="Smiley face" height="600" width="600">
+
+<!-- <div>
+<audio controls autoplay id="audioPlayer">
+  <source src="music/hillcomey.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</div> -->
+
+<div>
+<button type="button" id="rolf">Next song</button>
+</div>
+
+
+
+
+<!-- <footer>
+<font size="1">
+Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
+</font>
+</footer> -->
+</body>
+</html>
+
+
+
+<script>
+
+var songs = ['hillcomey', 'sandstorm', 'metal'];
+var track = 0;
+var audioType = '.mp3';
+var audioPlayer = document.createElement('audio');
+
+$(window).on('load', function() {
+
+    audioPlayer.setAttribute('src', 'music/' + songs[track] + audioType);
+    audioPlayer.setAttribute('controls', 'controls');
+    audioPlayer.setAttribute('id', 'audioPlayer');
+    audioPlayer.setAttribute('loop', true);
+    $('body').append(audioPlayer);
+    audioPlayer.load();
+    audioPlayer.play();
+
+});
+
+$('button').on('click', function(){
+    audioPlayer.pause();
+    if(track < songs.length - 1){
+        track++;
+        audioPlayer.setAttribute('src', 'music/' + songs[track] + audioType);
+        audioPlayer.load();
+        audioPlayer.play();
+    }
+    else {
+        track = 0;
+        audioPlayer.setAttribute('src', 'music/' + songs[track] + audioType);
+        audioPlayer.load();
+        audioPlayer.play();
+    }
+})
+
+</script>
